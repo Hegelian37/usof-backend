@@ -60,4 +60,8 @@ So far the following functions are realised:
 Feel free to try out everything yourself!
 
 ## Screenshots:
-![Login Page](https://i.ibb.co/4R5cSKN3/screen-1.png)
+![Login Page](https://i.ibb.co/212NXmJS/screen-5.png)
+![Questions Page](https://i.ibb.co/TBbW7Xh7/screen-6.png)
+![Profile Page](https://i.ibb.co/FFM3YQZ/screen-8.png)
+![Post Page](https://i.ibb.co/JjD07zHQ/screen-9.png)
+![Creating the Post](https://i.ibb.co/7J8tJb15/screen-12.png)
