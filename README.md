@@ -60,4 +60,4 @@ So far the following functions are realised:
 Feel free to try out everything yourself!
 
 ## Screenshots:
-![Login Page](https://www.dropbox.com/scl/fi/1bck5amxwnm8lf2s1zwlq/screen-1.png?raw=1)
+![Login Page](https://www.dropbox.com/scl/fi/1bck5amxwnm8lf2s1zwlq/screen-1.png)
