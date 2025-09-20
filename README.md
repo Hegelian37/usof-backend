@@ -60,4 +60,4 @@ So far the following functions are realised:
 Feel free to try out everything yourself!
 
 ## Screenshots:
-![Login Page](https://ibb.co/nM5T16kt)
+![Login Page](https://i.ibb.co/4R5cSKN3/screen-1.png)
