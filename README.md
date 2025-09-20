@@ -30,7 +30,9 @@ First and foremost, you are supposed to start up the program from within the roo
 For it is the root folder where the index.js file is located. To start up the server, run:
 
 node index.js
+
 OR
+
 node.exe index.js
 
 This will immediately not only create the server, the instance, and the database schema, but it also will migrate test data into the aforementioned schema, for the potential customer to see the capabilities unfurled!
