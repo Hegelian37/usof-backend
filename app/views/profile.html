@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>USOF | Profile</title>
+    <meta name="description" content="User Profile">
+    <link rel="stylesheet" href="/css/profile-style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">USOF</div>
+            <div class="user-info">
+                <span id="header-username">Loading...</span>
+                <span id="header-user-rating" class="user-rating">0</span>
+                <div id="admin-panel" style="display: none;">
+                    <a href="/admin.html" class="btn btn-primary">Admin Panel</a>
+                </div>
+                <div>
+                    <a href="/main.html" class="btn btn-primary">Back to Main</a>
+                </div>
+                <div>
+                    <a href="#" class="btn btn-primary" onclick="event.preventDefault(); doLogout();">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="profile-container">
+        <h1>My Profile</h1>
+        
+        <!-- Profile Picture Section -->
+        <div class="profile-section">
+            <h2>Profile Picture</h2>
+            <div class="profile-picture-section">
+                <img id="current-profile-pic" src="" alt="Profile Picture" class="current-profile-pic">
+                
+                <div>
+                    <form id="profile-pic-form" class="upload-form" enctype="multipart/form-data">
+                        <div class="file-input-wrapper">
+                            <input type="file" id="profile-picture-input" name="profile_picture" accept="image/*">
+                            <label for="profile-picture-input" class="file-input-label">Choose New Picture</label>
+                        </div>
+                        <button type="submit" class="btn">Upload</button>
+                    </form>
+                    <button id="remove-picture-btn" class="btn btn-danger" style="display: none;">Remove Picture</button>
+                </div>
+                <p style="font-size: 12px; color: #666; margin-top: 10px;">
+                    Supported formats: JPEG, JPG, PNG, GIF. Maximum size: 5MB.
+                </p>
+            </div>
+        </div>
+        
+        <!-- User Information Section -->
+        <div class="profile-section" id="user-info-section">
+            <h2>User Information</h2>
+            <div class="info-grid">
+                <div class="info-label">Username:</div>
+                <div id="username">Loading...</div>
+                
+                <div class="info-label">Full Name:</div>
+                <div id="full-name">Loading...</div>
+                
+                <div class="info-label">Email:</div>
+                <div id="email">Loading...</div>
+                
+                <div class="info-label">Status:</div>
+                <div id="status">Loading...</div>
+                
+                <div class="info-label">Rating:</div>
+                <div id="user-rating">Loading...</div>
+                
+                <div class="info-label">Posts:</div>
+                <div id="posts-count">Loading...</div>
+                
+                <div class="info-label">Comments:</div>
+                <div id="comments-count">Loading...</div>
+                
+                <div class="info-label">Member Since:</div>
+                <div id="member-since">Loading...</div>
+            </div>
+        </div>
+        
+        <div id="message"></div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <button id="edit-profile-btn" class="btn btn-secondary">Edit Profile Information</button>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div id="edit-profile-modal" class="edit-modal">
+        <div class="edit-modal-content">
+            <div class="edit-modal-header">
+                <h3 class="edit-modal-title">Edit Profile Information</h3>
+                <button class="close-btn" onclick="closeEditModal()">&times;</button>
+            </div>
+            
+            <form id="edit-profile-form">
+                <div class="form-group">
+                    <label for="edit-full-name">Full Name:</label>
+                    <input type="text" id="edit-full-name" name="full_name" placeholder="Enter your full name">
+                    <div class="form-help">This is how your name will appear to other users</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-email">Email Address:</label>
+                    <input type="email" id="edit-email" name="email" required placeholder="Enter your email address">
+                    <div class="form-help">Used for notifications and account recovery</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="current-password">Current Password (leave empty to keep unchanged):</label>
+                    <input type="password" id="current-password" name="current_password" placeholder="Enter current password">
+                    <div class="form-help">Required only if you want to change your password</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="new-password">New Password:</label>
+                    <input type="password" id="new-password" name="new_password" placeholder="Enter new password" minlength="6">
+                    <div class="form-help">Minimum 6 characters (only fill if changing password)</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm-password">Confirm New Password:</label>
+                    <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm new password">
+                    <div class="form-help">Must match the new password</div>
+                </div>
+                
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/profile-script.js"></script>
+</body>
+</html>

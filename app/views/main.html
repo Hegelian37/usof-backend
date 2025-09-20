@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>USOF | Questions & Answers</title>
+    <meta name="description" content="Programming Questions and Answers">
+    <link rel="stylesheet" href="/css/main-style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">USOF</div>
+            <div class="user-info">
+                <span id="username">Loading...</span>
+                <span id="user-rating" class="user-rating">0</span>
+                <div id="admin-panel" style="display: none;">
+                    <a href="/admin.html" class="btn btn-primary">Admin Panel</a>
+                </div>
+                <div id="user-profile">
+                    <a href="/profile.html" class="btn btn-primary">Profile</a>
+                </div>
+                <div>
+                    <a href="#" class="btn btn-primary" onclick="event.preventDefault(); logout();">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="main-content">
+            <!-- Question List View -->
+            <div id="questions-view">
+                <div class="question-header">
+                    <h1>All Questions</h1>
+                    <button onclick="showNewPostForm()" class="ask-question-btn">Ask Question</button>
+                </div>
+
+                <!-- New Post Form -->
+                <div id="new-post-form" class="new-post-form">
+                    <h3>Ask a Question</h3>
+                    <form id="post-form">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" name="title" required placeholder="What's your programming question?">
+                        </div>
+                        <div class="form-group">
+                            <label>Question</label>
+                            <textarea name="content" required placeholder="Include all the information someone would need to answer your question"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Tags</label>
+                            <select name="categories" id="categories-select" multiple>
+                                <!-- Categories loaded dynamically -->
+                            </select>
+                            <small>Select relevant categories/tags</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Post Your Question</button>
+                        <button type="button" onclick="hideNewPostForm()" class="btn btn-secondary">Cancel</button>
+                    </form>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters">
+                    <div class="filter-group">
+                        <label>Sort by:</label>
+                        <select id="sort-select" class="filter-select" onchange="loadPosts()">
+                            <option value="likes">Most Liked</option>
+                            <option value="date">Newest</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Category:</label>
+                        <select id="category-filter" class="filter-select" onchange="loadPosts()">
+                            <option value="">All Categories</option>
+                            <!-- Categories loaded dynamically -->
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>From:</label>
+                        <input type="date" id="date-from" class="filter-input" onchange="loadPosts()">
+                    </div>
+                    <div class="filter-group">
+                        <label>To:</label>
+                        <input type="date" id="date-to" class="filter-input" onchange="loadPosts()">
+                    </div>
+                </div>
+
+                <!-- Questions List -->
+                <div class="questions-list" id="questions-list">
+                    <div class="loading">Loading questions...</div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination" id="pagination"></div>
+            </div>
+
+            <!-- Question Detail View -->
+            <div id="question-detail" class="question-detail">
+                <button onclick="showQuestionsList()" class="btn btn-secondary" style="margin-bottom: 20px;">← Back to Questions</button>
+                <div id="question-content"></div>
+                <div class="comments-section">
+                    <h3>Comments</h3>
+                    <div id="comments-list"></div>
+                    <div class="comment-form">
+                        <textarea id="comment-input" placeholder="Add a comment..." rows="3"></textarea>
+                        <br>
+                        <button onclick="submitComment()" class="btn btn-primary" style="margin-top: 10px;">Add Comment</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Favorites View -->
+            <div id="favorites-view" style="display: none;">
+                <div class="question-header">
+                    <h1>My Favorite Posts</h1>
+                    <button onclick="showQuestionsList()" class="btn btn-secondary">← Back to All Questions</button>
+                </div>
+                
+                <div class="questions-list" id="favorites-list">
+                    <div class="loading">Loading favorites...</div>
+                </div>
+                
+                <div class="pagination" id="favorites-pagination"></div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <h3>Quick Navigation</h3>
+            <ul id="sidebar-navigation">
+                <li><a href="#" onclick="showFavorites()">★ My Favorites</a></li>
+            </ul>
+            
+            <h3>Categories</h3>
+            <ul id="sidebar-categories">
+                <li>Loading...</li>
+            </ul>
+
+            <h3>Stats</h3>
+            <div id="stats">
+                <p>Questions: <span id="total-questions">-</span></p>
+                <p>Users: <span id="total-users">-</span></p>
+            </div>
+        </aside>
+    </div>
+
+    <script src="/js/main-script.js"></script>
+</body>
+</html>

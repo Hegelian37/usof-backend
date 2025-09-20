@@ -1,0 +1,9 @@
+{
+    "host": "localhost",
+    "user": "mshkolnyk",
+    "password": "securepass",
+    "database": "usof_web",
+    "waitForConnections": true,
+    "connectionLimit": 10,
+    "queueLimit": 0
+}
